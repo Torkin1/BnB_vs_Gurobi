@@ -1,7 +1,6 @@
 from logic.entities import *
 from unittest import TestCase
 
-# TODO: fire test
 class SPTF_test(TestCase):
 
     params = []
