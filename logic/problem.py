@@ -28,8 +28,12 @@ class Problem(ABC):
         self.target = None
         """ target function """
 
-        self.value = -1
-        """ value of the last calculation of target function """
+        self.value = None
+        """ value of the last calculation of target function, according to the solver that attempted to solve the problem: follows semantics:
+            - None: problem has not been solved yet.
+            - nan: problem is infeasible
+            - +inf | -inf: problem is feasible but unbounded
+            - otherwise: problem is feasible, value is the optimum of the target function """
 
     @property
     def solver(self):
