@@ -11,7 +11,7 @@ class Solver(ABC):
     """ Solver interface"""
     
     @abstractmethod
-    def solve(self, problem):
+    def __call__(self, problem):
         pass
 
 class Problem(ABC):
@@ -20,18 +20,30 @@ class Problem(ABC):
     Problem interface
     '''
     
-    solver = None
-    """ Each problem must be initalized with a solver that knows how to solve the problem """
+    def __init__(self):
 
-    vars = {}
-    """ values of variables of the problem. It can contain values for single variables (x = 1) or for vectors of variables (x = [x1 = 1, x2 = 0, ...])"""
+        self.__solver = None
+        """ Each problem must be initalized with a solver that knows how to solve the problem """
 
-    target = None
-    """ target function """
+        self.target = None
+        """ target function """
 
-    value = -1
-    """ value of the last calculation of target function """
+        self.value = -1
+        """ value of the last calculation of target function """
 
+    @property
+    def solver(self):
+        return self.__solver
+    
+    @solver.setter
+    def solver(self, solver):
+        self.__solver = solver
+    
     def solve(self):
-        self.solver.solve()
+
+        # calculate schedule
+        self.__solver(self)
+        
+        # update value of target function
+        self.value = self.target(self)            
 

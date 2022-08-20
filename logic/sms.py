@@ -1,4 +1,4 @@
-from problem import *
+from logic.problem import *
 
 class WeightedCompletionsSum(Target):
 
@@ -13,9 +13,9 @@ class SPTFfRuleSolver(Solver):
     """ A solver that uses Shortest Processing Time First (SPTF) rule to solve a preemptive Single Machine Problem.
     """
 
-    def solve(self, smsProblem):
-        schedule = []   # ordered list of job id
-        time = 0        # current time
+    def __call__(self, smsProblem, startingTime=0):
+        
+        time = startingTime        # current time
         shortestJob = Job() # job with the lowest remaining time among released ones
         completed = 0   # number of completed jobs
         
@@ -36,7 +36,7 @@ class SPTFfRuleSolver(Solver):
             if shortestJob != None:
                 
                 # add the job to the schedule
-                schedule.append((shortestJob.id, time))
+                shortestJob.startingTimes.append(time)
                 
                 # time progresses until the job is completed or a new job is released
                 progress = min(shortestJob.remainingTime, nextReleaseTime - time)
@@ -51,89 +51,46 @@ class SPTFfRuleSolver(Solver):
             
             time += progress
 
-        return schedule
-
 
 class SingleMachineScheduling(Problem):
     """
     Single Machine Scheduling Problem represented using time indexing
     """
     
-    jobs = [] 
-    """
-    Jobs to schedule on a single machine
-    """
-
-    completions = []
-
-class SMS_timeIndexed(SingleMachineScheduling):
-    """
-    Single Machine Scheduling Problem represented using time indexing variables
-    """
-
-    def __init__(self, jobs):
-        
-        # initialize time indexed sparse matrix, with jobs as rows and time as columns.
-        self.jobs = jobs
-        self.vars["x"] = []
-        for j in self.jobs:
-            self.vars["x"].append([])
-    
-    def solve(self):
-        
-        # calculate schedule
-        schedule = self.solver.solve(self)
-        
-        # populate vars according to schedule
-        for j in schedule:
-            self.vars["x"][j[0]].append(j[1])
-
-        # update value of target function
-        self.value = self.target(self)
+    def __init__(self):
+        self.jobs = []
+        """Jobs to schedule on a single machine"""
 
 class Job:
     """
     A job that can be scheduled on a single machine
     """
 
-    id = None
-    """ Identifier of the job """
-    
-    processingTime = None
-    """
-    Time needed for a job to complete
-    """
-    
-    releaseTime = None
-    """
-    a job cannot be scheduled before its release time
-    """
-
-    dueDate = None
-    """
-    a job should be completed before its due date (it depends on the problem nature)
-    """
-
-    weight = None
-    """
-    Multiplied with completion times to get the cost of each job
-    """
-
-    # dynamic attributes. They can change at runtime
-    
-    remainingTime = processingTime
-    """
-    Time left for a job to complete. A zero value means that the job is completed.
-    """
-    
-    completionTime = None
-    """ time when the job has completed """
-
     def __init__(self, id=-1, processingTime=float('inf'), releaseTime=float('inf'), dueDate=-1, weight=-1):
+        
+        # read-only attributes. They are the same for every schedule
         self.id = id
+        """ Identifier of the job """
+
         self.processingTime = processingTime
-        self.remainingTime = processingTime
+        """Time needed for a job to complete"""
+        
         self.releaseTime = releaseTime
+        """ a job cannot be scheduled before its release time """
+
         self.dueDate = dueDate
+        """ a job should be completed before its due date (it depends on the problem nature) """
+
         self.weight = weight
-    
+        """ Multiplied with completion times to get the cost of each job """
+
+        # dynamic attributes. They may change among each schedule
+        self.startingTimes = []
+        """ times when job processing has started. Since preemtion exists, there can be multiple starting times """
+                
+        self.remainingTime = processingTime
+        """ Time left for a job to complete. A zero value means that the job is completed. """
+        
+        self.completionTime = None
+        """ time when the job has completed """
+
