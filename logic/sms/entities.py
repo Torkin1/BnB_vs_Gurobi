@@ -1,17 +1,19 @@
 """
 A Single Machine Scheduling problem implementation with solvers and other tools
 """
-from logic.problem import *
+from logic.problem import Problem
 from copy import deepcopy
 
 class SingleMachineScheduling(Problem):
     """
-    Single Machine Scheduling Problem represented using time indexing
+    Single Machine Scheduling Problem.
     """
-    
-    def __init__(self):
-        self.jobs = []
-        """Jobs to schedule on a single machine"""
+
+    def __init__(self, jobs):
+        """
+        @param jobs: a list of jobs to be scheduled
+        """
+        self.vars = jobs
 
 class Job:
     """

@@ -23,6 +23,12 @@ class Problem(ABC):
     Problem interface
     '''
     
+    def getVars(self):
+        return self._vars
+    
+    def setVars(self, vars):
+        self._vars = vars
+
     def __init__(self):
 
         self.__solver = None
@@ -37,6 +43,9 @@ class Problem(ABC):
             - nan: problem is infeasible
             - +inf | -inf: problem is feasible but unbounded
             - otherwise: problem is feasible, value is the optimum of the target function """
+        
+        self.vars = None
+        """ pointer to the variables of the problem. Format of variables is defined by subclasses """
 
     @property
     def solver(self):

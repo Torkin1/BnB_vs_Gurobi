@@ -1,6 +1,6 @@
 from copy import deepcopy
 from logic.problem import Solver
-from logic.sms import *
+from logic.sms.entities import Job
 
 class SPTFRuleSolver(Solver):
     """ A solver that uses Shortest Processing Time First (SPTF) rule to solve a preemptive Single Machine Problem.
@@ -13,15 +13,15 @@ class SPTFRuleSolver(Solver):
         completed = 0   # number of completed jobs
         
         # time will start from the first time slot next to latest completion time (useful when the schedule is already partially calculated)
-        for job in smsProblem.jobs:
+        for job in smsProblem.vars:
             if job.remainingTime == 0 and job.completionTime > time:
                 time = job.completionTime + 1
                 completed += 1  # we note that some jobs are already completed
         
-        while completed < len(smsProblem.jobs):
+        while completed < len(smsProblem.vars):
             
             nextReleaseTime = float('inf') # earliest release time after current time
-            for job in smsProblem.jobs:
+            for job in smsProblem.vars:
                   
                 # finds nearest release time among unreleased jobs
                 if job.releaseTime > time and job.releaseTime < nextReleaseTime:

@@ -1,5 +1,7 @@
-from logic.sms.entities import *
-from logic.sms.solvers import *
+from logic.sms.entities import SingleMachineScheduling, Job
+from logic.sms.solvers.sptf import SPTFRuleSolver
+from logic.sms.solvers.cbnb import CombinatorialBnB
+from logic.sms.targets import WeightedCompletionsSum
 from unittest import TestCase
 
 class Solver_Test(TestCase):
@@ -9,20 +11,17 @@ class Solver_Test(TestCase):
     @classmethod
     def setUpClass(cls):
         cls.params = [
-    ([ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ], [[0,5], [10], [9,15], [3]], SPTFRuleSolver()),
+    ([ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ], 57, SPTFRuleSolver()),
     # TODO: need to find an expected schedule for the bnb test case.
     #       Anyway, analyzing the execution with debugging mode seems to show that the algorithm works as expected.
-    #([ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ], [[0,5], [10], [9,15], [3]], CombinatorialBnB(SPTFRuleSolver))
+    ([ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ], 57, CombinatorialBnB(SPTFRuleSolver))
      ]
  
     def test_solver(self):
         for jobs, expected, solver in self.params:
             with self.subTest():
-                p = SingleMachineScheduling()
-                p.jobs = jobs
+                p = SingleMachineScheduling(jobs)
                 p.solver = solver
                 p.target = WeightedCompletionsSum()
                 p.solve()
-                for i in range(0, len(jobs)):
-                    self.assertEquals(expected[i], p.jobs[i].startingTimes)
-                 
+                self.assertTrue(p.value == expected)                 
