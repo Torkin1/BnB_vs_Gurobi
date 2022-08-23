@@ -1,3 +1,6 @@
+"""
+A Single Machine Scheduling problem implementation with solvers and other tools
+"""
 from logic.problem import *
 from copy import deepcopy
 

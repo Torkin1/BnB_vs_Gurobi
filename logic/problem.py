@@ -1,3 +1,6 @@
+"""
+A generic description of a LP problem interface interface
+"""
 from abc import ABC, abstractmethod
 
 class Target(ABC):
