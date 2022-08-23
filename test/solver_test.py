@@ -1,4 +1,5 @@
-from logic.sms import *
+from logic.sms.entities import *
+from logic.sms.solvers import *
 from unittest import TestCase
 
 class Solver_Test(TestCase):
