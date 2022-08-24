@@ -1,6 +1,6 @@
 from copy import deepcopy
 from logic.problem import Solver
-from logic.sms.entities import SingleMachineScheduling, Job
+from logic.sms.entities import SingleMachineScheduling, Job, Machine
 from logic.bnb import BranchAndBound
 
 
@@ -10,12 +10,6 @@ class CombinatorialBnB(BranchAndBound):
     def branch(self, smsProblem):
 
         subProblems = []
-        latestCompletion = -1
-        
-        # finds latest completion time among original jobs
-        for j in smsProblem.vars:
-            if j.remainingTime == 0 and j.completionTime > latestCompletion:
-                latestCompletion = j.completionTime
         
         # creates subproblems for each uncompleted job
         for j in smsProblem.vars:
@@ -23,10 +17,26 @@ class CombinatorialBnB(BranchAndBound):
 
                 # creates subproblem identical to the original, but current job is already scheduled after latest completion time among original jobs
                 smsProblemCopy = deepcopy(smsProblem)
-                job = smsProblemCopy.vars[smsProblem.vars.index(j)]
-                job.startingTimes.append(max(latestCompletion + 1, job.releaseTime))
-                job.completionTime = job.startingTimes[-1] + job.remainingTime
-                job.remainingTime = 0
+                jobCopy = smsProblemCopy.vars[smsProblem.vars.index(j)]
+                if smsProblemCopy.machine.currentlyScheduled is None or jobCopy.id != smsProblemCopy.machine.currentlyScheduled.id:
+                    # schedules another job
+                    startingTime = max(smsProblem.machine.currentTime, jobCopy.releaseTime)
+                    jobCopy.startingTimes.append(startingTime)
+                    smsProblemCopy.machine.currentlyScheduled = jobCopy
+                    progress = startingTime - smsProblem.machine.currentTime + 1
+                else:
+                    # keeps scheduled the current job
+                    progress = 1
+
+                # updates machine time and currently scheduled remaining time
+                smsProblemCopy.machine.currentTime += progress
+                smsProblemCopy.machine.currentlyScheduled.remainingTime -= progress
+
+                # checks if job has been completed 
+                if smsProblemCopy.machine.currentlyScheduled.remainingTime <= 0:
+                    smsProblemCopy.machine.currentlyScheduled.remainingTime = 0
+                    smsProblemCopy.machine.currentlyScheduled.completionTime = smsProblemCopy.machine.currentTime
+                    smsProblemCopy.machine.completed += 1
 
                 # sets a solver which will be used to calculate bounds
                 smsProblemCopy.solver = self.subSolverClass()
