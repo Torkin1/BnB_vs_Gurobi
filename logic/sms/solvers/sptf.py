@@ -1,4 +1,3 @@
-from copy import deepcopy
 from logic.problem import Solver
 from logic.sms.entities import Job, Machine
 

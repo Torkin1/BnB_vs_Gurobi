@@ -33,7 +33,6 @@ class Machine:
         self.completed = 0
         """ number of completed jobs """
 
-
 class Job:
     """
     A job that can be scheduled on a single machine

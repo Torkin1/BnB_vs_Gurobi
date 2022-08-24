@@ -3,7 +3,6 @@ from logic.problem import Solver
 from logic.sms.entities import SingleMachineScheduling, Job, Machine
 from logic.bnb import BranchAndBound
 
-
 class CombinatorialBnB(BranchAndBound):
     """ an implementation of the Branch and Bound algorithm for solving Single Machine Scheduling Problem """
 
