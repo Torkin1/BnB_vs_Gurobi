@@ -1,7 +1,7 @@
 from logic.sms.entities import SingleMachineScheduling, Job, Machine
-from logic.sms.solvers.sptf import SPTFRuleScheduler
-from logic.sms.solvers.cbnb import CombinatorialBnB
-from logic.sms.targets import WeightedCompletionsSum
+from logic.sms.sptf import SPTFRuleScheduler
+from logic.sms.cbnb import CombinatorialBnB
+from logic.sms.objectives import WeightedCompletionsSum
 from unittest import TestCase
 
 class Solver_Test(TestCase):
@@ -21,6 +21,6 @@ class Solver_Test(TestCase):
             with self.subTest():
                 p = SingleMachineScheduling(jobs, Machine(0))
                 p.solver = solver
-                p.target = WeightedCompletionsSum()
+                p.objective = WeightedCompletionsSum()
                 p.solve()
                 self.assertEquals(expected, p.value)                 

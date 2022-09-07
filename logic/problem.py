@@ -3,7 +3,7 @@ A generic description of a LP problem interface interface
 """
 from abc import ABC, abstractmethod
 
-class Target(ABC):
+class Objective(ABC):
     """ target functon interface"""
 
     @abstractmethod
@@ -34,7 +34,7 @@ class Problem(ABC):
         self.__solver = None
         """ Each problem must be initalized with a solver that knows how to solve the problem """
 
-        self.target = None
+        self.objective = None
         """ target function """
 
         self.value = None
@@ -61,5 +61,5 @@ class Problem(ABC):
         self.__solver(self)
         
         # update value of target function
-        self.value = self.target(self)            
+        self.value = self.objective(self)            
 

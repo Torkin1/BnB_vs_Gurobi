@@ -1,7 +1,7 @@
-from logic.problem import Target
+from logic.problem import Objective
 from logic.sms import *
 
-class WeightedCompletionsSum(Target):
+class WeightedCompletionsSum(Objective):
 
     def __call__(self, smsProblem):
 
