@@ -14,7 +14,7 @@ class CombinatorialBnB(BranchAndBound):
         for j in smsProblem.vars:
             if j.remainingTime > 0:
 
-                # creates subproblem identical to the original, but current job is already scheduled after latest completion time among original jobs
+                # creates subproblem identical to the original
                 smsProblemCopy = deepcopy(smsProblem)
                 jobCopy = smsProblemCopy.vars[smsProblem.vars.index(j)]
                 if smsProblemCopy.machine.currentlyScheduled is None or jobCopy.id != smsProblemCopy.machine.currentlyScheduled.id:

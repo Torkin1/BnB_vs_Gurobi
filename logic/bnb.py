@@ -38,4 +38,3 @@ class BranchAndBound(Solver):
         self.__solve_bnb(problems)
 
         problem.vars = self.incumbent
-        problem.value = self.incumbentBound

@@ -61,5 +61,4 @@ class Problem(ABC):
         self.__solver(self)
         
         # update value of target function
-        self.value = self.objective(self)            
-
+        self.value = self.objective(self)

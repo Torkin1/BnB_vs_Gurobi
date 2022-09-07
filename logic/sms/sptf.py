@@ -6,9 +6,8 @@ class SPTFRuleScheduler(Solver):
     """
 
     def __call__(self, smsProblem):
-        
-        shortestJob = Job() # job with the lowest remaining time among released ones
                 
+        shortestJob = Job() # job with the lowest remaining time among released ones
         while smsProblem.machine.completed < len(smsProblem.vars):
             
             nextReleaseTime = float('inf') # earliest release time after current time
@@ -34,7 +33,7 @@ class SPTFRuleScheduler(Solver):
                 progress = min(shortestJob.remainingTime, nextReleaseTime - smsProblem.machine.currentTime)
                 shortestJob.remainingTime -= progress if progress <= shortestJob.remainingTime else shortestJob.remainingTime   # remaining time must be at least 0
                 if shortestJob.remainingTime == 0:
-                    shortestJob.completionTime = smsProblem.machine.currentTime + progress
+                    shortestJob.completionTime = smsProblem.machine.currentTime + progress - 1
                     smsProblem.machine.completed += 1
             else:
                 
