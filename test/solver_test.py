@@ -1,7 +1,7 @@
 from logic.sms.entities import SingleMachineScheduling, Job, Machine
 from logic.sms.sptf import SPTFRuleScheduler
 from logic.sms.cbnb import CombinatorialBnB
-from logic.sms.objectives import WeightedCompletionsSum
+from logic.sms.completions_sum import WeightedCompletionsSum
 from logic.sms.gurobi import GurobiSolver, SMS_LP_minWeightedSum_timeIndexed, UpdateValue
 from unittest import TestCase
 from copy import deepcopy

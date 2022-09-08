@@ -5,11 +5,8 @@ from logic.problem import Problem, Solver, Objective
 MAX_TIME = 200 
 """time horizon"""
 
-M = 1000000     
-"""big M"""
-
 class UpdateValue(Objective):
-    """ update the value of the problem according to the solver's solution """
+    """ update the value of the problem according to gurobi solution """
 
     def __call__(self, problem):
         if problem.vars.status == GRB.OPTIMAL:
@@ -59,4 +56,3 @@ class GurobiSolver(Solver):
     def __call__(self, problem):
 
         problem.vars.optimize()
-        print(problem.vars.X)

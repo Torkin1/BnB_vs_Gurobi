@@ -18,12 +18,14 @@ class CombinatorialBnB(BranchAndBound):
                 smsProblemCopy = deepcopy(smsProblem)
                 jobCopy = smsProblemCopy.vars[smsProblem.vars.index(j)]
                 if smsProblemCopy.machine.currentlyScheduled is None or jobCopy.id != smsProblemCopy.machine.currentlyScheduled.id:
+                    
                     # schedules another job
                     startingTime = max(smsProblem.machine.currentTime, jobCopy.releaseTime)
                     jobCopy.startingTimes.append(startingTime)
                     smsProblemCopy.machine.currentlyScheduled = jobCopy
-                    progress = startingTime - smsProblem.machine.currentTime + 1
+                    progress = startingTime - smsProblem.machine.currentTime + 1   
                 else:
+                    
                     # keeps scheduled the current job
                     progress = 1
 
