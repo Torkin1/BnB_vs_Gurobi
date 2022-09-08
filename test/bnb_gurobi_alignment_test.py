@@ -1,7 +1,7 @@
 from logic.sms.entities import SingleMachineScheduling, Job, Machine
 from logic.sms.sptf import SPTFRuleScheduler
 from logic.sms.cbnb import CombinatorialBnB
-from logic.sms.objectives import CompletionsSum
+from logic.sms.objectives import WeightedCompletionsSum
 from logic.sms.gurobi import GurobiSolver, SMS_LP_minWeightedSum_timeIndexed, UpdateValue
 from unittest import TestCase
 
@@ -11,9 +11,9 @@ class Solver_Test(TestCase):
     
     @classmethod
     def setUpClass(cls):
-        jobs = [ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ]
         cls.params = [
-            [ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ],
+            [ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 2), Job(2, 14, 3, 13, 3), Job(3, 2, 3, 13, 4) ],
+            [ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ]
         ]
  
     def test_solver(self):
@@ -22,7 +22,7 @@ class Solver_Test(TestCase):
                 
                 pBnb = SingleMachineScheduling(jobs, Machine(0))
                 pBnb.solver = CombinatorialBnB(SPTFRuleScheduler)
-                pBnb.objective = CompletionsSum()
+                pBnb.objective = WeightedCompletionsSum()
                 pBnb.solve()
                 
                 pGurobi = SMS_LP_minWeightedSum_timeIndexed(jobs)
