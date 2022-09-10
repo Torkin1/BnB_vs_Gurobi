@@ -19,14 +19,14 @@ class BranchAndBound(Solver):
         pass    
                     
     @abstractmethod
-    def fathom(self, toFathom, otherProblems) -> "True if problem does not need further decomposition, False otherwise":
+    def isFathomed(self, toFathom, otherProblems) -> "True if problem does not need further decomposition, False otherwise":
         pass
 
     def __solve_bnb(self, problems):
 
         if len(problems) != 0:
             p = problems.pop()
-            if not self.fathom(p, problems) :
+            if not self.isFathomed(p, problems) :
                 problems += self.branch(p)
             self.__solve_bnb(problems)
     

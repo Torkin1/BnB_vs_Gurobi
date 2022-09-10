@@ -57,15 +57,15 @@ class CombinatorialBnB(BranchAndBound):
 
         return level
     
-    def dominate(self, p, subProblems):
+    def isDominated(self, p, subProblems):
 
         # TODO: implement dominance rule
         return False
                 
-    def fathom(self, toFathom, otherProblems) -> "True if problem does not need further decomposition, False otherwise":
+    def isFathomed(self, toFathom, otherProblems):
         
         # a dominated problem can be immediately considered as fathomed
-        if self.dominate(toFathom, otherProblems):
+        if self.isDominated(toFathom, otherProblems):
             return True
         
         # calculates bound for the problem
