@@ -5,7 +5,7 @@ from logic.bnb import BranchAndBound
 
 class CombinatorialBnB(BranchAndBound):
     """ an implementation of the Branch and Bound algorithm for solving Single Machine Scheduling Problem """
-
+    
     def branch(self, smsProblem):
 
         subProblems = []
@@ -57,15 +57,15 @@ class CombinatorialBnB(BranchAndBound):
 
         return level
     
-    def isDominated(self, p, subProblems):
+    def isDominated(self, p):
 
         # TODO: implement dominance rule
         return False
                 
-    def isFathomed(self, toFathom, otherProblems):
+    def isFathomed(self, toFathom):
         
         # a dominated problem can be immediately considered as fathomed
-        if self.isDominated(toFathom, otherProblems):
+        if self.isDominated(toFathom):
             return True
         
         # calculates bound for the problem
