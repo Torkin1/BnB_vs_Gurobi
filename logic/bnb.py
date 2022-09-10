@@ -19,7 +19,8 @@ class BranchAndBound(Solver):
         pass    
                     
     @abstractmethod
-    def isFathomed(self, toFathom, otherProblems) -> "True if problem does not need further decomposition, False otherwise":
+    def isFathomed(self, toFathom, otherProblems):
+        """True if problem does not need further decomposition, False otherwise"""
         pass
 
     def __solve_bnb(self, problems):
