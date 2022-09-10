@@ -18,7 +18,7 @@ class Solver_Test(TestCase):
  
     def test_solver(self):
         for jobs in self.params:
-            with self.subTest():
+            with self.subTest(jobs=self.params.index(jobs)):
                 
                 pBnb = SingleMachineScheduling(jobs, Machine(0))
                 pBnb.solver = CombinatorialBnB(SPTFRuleScheduler)

@@ -21,9 +21,9 @@ class Solver_Test(TestCase):
  
     def test_solver(self):
         for expected, solver, objective, problem in self.params:
-            with self.subTest():
+            with self.subTest(solver=solver, objective=objective, problem=problem):
                 p = problem
                 p.solver = solver
                 p.objective = objective
                 p.solve()
-                self.assertEquals(expected, p.value)                 
+                self.assertEquals(expected, p.value)
