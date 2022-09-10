@@ -2,13 +2,15 @@ from copy import deepcopy
 from logic.problem import Solver
 from logic.sms.entities import SingleMachineScheduling, Job, Machine
 from logic.bnb import BranchAndBound
+from treelib import Node
 
 class CombinatorialBnB(BranchAndBound):
     """ an implementation of the Branch and Bound algorithm for solving Single Machine Scheduling Problem """
     
-    def branch(self, smsProblem):
+    def branch(self, smsProblemNode):
 
-        subProblems = []
+        subProblemNodes = []
+        smsProblem = smsProblemNode.data
         
         # creates subproblems for each uncompleted job
         for j in smsProblem.vars:
@@ -43,32 +45,31 @@ class CombinatorialBnB(BranchAndBound):
                 smsProblemCopy.solver = self.subSolverClass()
 
                 # adds subproblem to the list of subproblems
-                subProblems.append(smsProblemCopy)
+                subProblemNodes.append(Node(identifier=smsProblemCopy, data=smsProblemCopy))
               
-        return subProblems
-    
-    def getLevel(self, problem):
-        """ calculates level of branching tree of problem p by counting how many jobs are already scheduled """
-
-        level = 0
-        for j in problem.vars:
-            if len(j.startingTimes) != 0:
-                scheduled += 1
-
-        return level
-    
-    def isDominated(self, p):
-
-        # TODO: implement dominance rule
-        return False
+        return subProblemNodes
+        
+    def isDominated(self, pNode):
+        
+        k = pNode.data.machine.currentlyScheduled        
+        sNodes = self.problemsTree.siblings(pNode.identifier)
+        for s in sNodes:
+            # Problem is dominated if job k is released after the estimated
+            # completion time of the currently scheduled job in all other sibling problems,
+            # assuming that no preemption occurs.
+            j = s.data.machine.currentlyScheduled
+            if k.releaseTime <= s.data.machine.currentTime + j.remainingTime:
+                return False
+        return True
                 
-    def isFathomed(self, toFathom):
+    def isFathomed(self, toFathomNode):
         
         # a dominated problem can be immediately considered as fathomed
-        if self.isDominated(toFathom):
+        if self.isDominated(toFathomNode):
             return True
         
         # calculates bound for the problem
+        toFathom = toFathomNode.data
         toFathomCopy = deepcopy(toFathom)
         toFathomCopy.solve()  # bounding
         if toFathomCopy.value == float("nan") or toFathomCopy.value >= self.incumbentBound: 
