@@ -21,7 +21,7 @@ class SPTFRuleScheduler(Solver):
                 if job.releaseTime <= smsProblem.machine.currentTime and (shortestJob.remainingTime == 0 or job.remainingTime < shortestJob.remainingTime) and job.remainingTime > 0:
                     shortestJob = job
                 
-            if shortestJob != None:
+            if shortestJob.remainingTime != 0:
                 
                 # add the job to the schedule if not already scheduled
                 if smsProblem.machine.currentlyScheduled is None or shortestJob.id != smsProblem.machine.currentlyScheduled.id:
