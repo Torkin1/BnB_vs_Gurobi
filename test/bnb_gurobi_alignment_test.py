@@ -13,7 +13,8 @@ class Solver_Test(TestCase):
     def setUpClass(cls):
         cls.params = [
             [ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 2), Job(2, 14, 3, 13, 3), Job(3, 2, 3, 13, 4) ],
-            [ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ]
+            [ Job(0, 7, 0, 13, 1), Job(1, 5, 10, 13, 1), Job(2, 14, 3, 13, 1), Job(3, 2, 3, 13, 1) ],
+            [ Job(0, processingTime=1, releaseTime=0, weight=1), Job(1, processingTime=1, releaseTime=0, weight=1) ]
         ]
  
     def test_solver(self):

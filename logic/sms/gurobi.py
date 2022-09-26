@@ -24,6 +24,8 @@ class SMS_LP_minWeightedSum_timeIndexed(Problem):
     def __init__(self, jobs):
         """@param jobs: list of jobs to schedule"""
 
+        super().__init__()
+        
         self.objective = UpdateValue()
         
         self.vars = gp.Model("smsModel")
@@ -32,7 +34,7 @@ class SMS_LP_minWeightedSum_timeIndexed(Problem):
         # sets up time indexed matrix variable
         x = model.addVars(len(jobs), MAX_TIME, vtype=GRB.BINARY, name="x")
         """x[j, t]: 1 if job j is in service at time t, else 0"""
-        c = model.addVars(len(jobs), vtype=GRB.INTEGER, lb=0, name="c")
+        c = model.addVars(len(jobs), vtype=GRB.INTEGER, lb=1, name="c")
         """C[j]: completion time of job j"""
 
         # sets up objective function
