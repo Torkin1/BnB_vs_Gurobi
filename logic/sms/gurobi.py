@@ -2,7 +2,7 @@ import gurobipy as gp
 from gurobipy import GRB
 from logic.problem import Problem, Solver, Objective
 
-MAX_TIME = 200 
+MAX_TIME = 100 
 """time horizon"""
 
 class UpdateValue(Objective):

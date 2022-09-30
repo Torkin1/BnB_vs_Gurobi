@@ -1,2 +1,5 @@
-gurobipy
-treelib
+gurobipy==9.5.2
+treelib==1.6.1
+numpy==1.22.0
+func-timeout==4.3.5
+matplotlib==3.5.3

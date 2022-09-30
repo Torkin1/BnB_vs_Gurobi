@@ -13,6 +13,7 @@ class SingleMachineScheduling(Problem):
         """
         @param jobs: a list of jobs to be scheduled
         """
+        super().__init__()
         self.vars = jobs
         self.machine = machine
 
