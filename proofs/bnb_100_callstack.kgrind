@@ -1,0 +1,659 @@
+event: ns : Nanoseconds
+events: ns
+summary: 75311067048
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/bnb.py
+fn=__solve_bnb
+31 126435544
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/cbnb.py
+cfn=branch
+calls=56 10
+31 28805010999
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/cbnb.py
+cfn=isFathomed
+calls=5644 65
+31 45791843486
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=add_node
+calls=5544 284
+31 68307042
+cfl=~
+cfn=<built-in method builtins.len>
+calls=5645 0
+31 1437929
+cfl=~
+cfn=<method 'pop' of 'list' objects>
+calls=5644 0
+31 2119198
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/bnb.py
+fn=__call__
+41 66537
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/bnb.py
+cfn=__solve_bnb
+calls=1 31
+41 74795154198
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/cbnb.py
+cfn=branch
+calls=1 10
+41 514488451
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=add_node
+calls=100 284
+41 1086476
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=create_node
+calls=1 366
+41 149549
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=get_node
+calls=1 481
+41 3086
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/problem.py
+fn=solver
+54 6473612
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/problem.py
+fn=solve
+58 34641534
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/bnb.py
+cfn=__call__
+calls=1 41
+58 75310948297
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/completions_sum.py
+cfn=__call__
+calls=5645 6
+58 246409768
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/sptf.py
+cfn=__call__
+calls=5644 8
+58 18046199577
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/cbnb.py
+fn=branch
+10 199827471
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/problem.py
+cfn=solver
+calls=5644 54
+10 6473612
+cfl=/usr/lib64/python3.10/copy.py
+cfn=deepcopy
+calls=5644 128
+10 29065655226
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=__init__
+calls=5644 46
+10 30241005
+cfl=~
+cfn=<built-in method builtins.max>
+calls=5589 0
+10 7747218
+cfl=~
+cfn=<method 'append' of 'list' objects>
+calls=11233 0
+10 1856191
+cfl=~
+cfn=<method 'index' of 'list' objects>
+calls=5644 0
+10 7698727
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/cbnb.py
+fn=isDominated
+52 42210024
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=identifier
+calls=5644 207
+52 4805778
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=siblings
+calls=5644 858
+52 459177961
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/cbnb.py
+fn=isFathomed
+65 158607959
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/problem.py
+cfn=solve
+calls=5644 58
+65 18327181656
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/cbnb.py
+cfn=isDominated
+calls=5644 52
+65 506193763
+cfl=/usr/lib64/python3.10/copy.py
+cfn=deepcopy
+calls=5644 128
+65 26799860108
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/completions_sum.py
+fn=__call__
+6 176438132
+cfl=~
+cfn=<built-in method builtins.sum>
+calls=5645 0
+6 10151301
+cfl=~
+cfn=<method 'append' of 'list' objects>
+calls=564500 0
+6 59820335
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/entities.py
+fn=__init__
+42 12850765
+
+fl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/sptf.py
+fn=__call__
+8 17769894232
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/sms/entities.py
+cfn=__init__
+calls=5644 42
+8 12850765
+cfl=~
+cfn=<built-in method builtins.len>
+calls=572744 0
+8 57600803
+cfl=~
+cfn=<built-in method builtins.min>
+calls=567100 0
+8 142676816
+cfl=~
+cfn=<method 'append' of 'list' objects>
+calls=558092 0
+8 63176961
+
+fl=/usr/lib64/python3.10/_weakrefset.py
+fn=_remove
+39 45891
+cfl=~
+cfn=<method 'discard' of 'set' objects>
+calls=2 0
+39 3924
+
+fl=/usr/lib64/python3.10/copy.py
+fn=deepcopy
+128 26141377484
+cfl=/usr/lib64/python3.10/copy.py
+cfn=_deepcopy_atomic
+calls=18577393 182
+128 1924464900
+cfl=/usr/lib64/python3.10/copy.py
+cfn=_deepcopy_list
+calls=1140188 201
+128 54691909507
+cfl=/usr/lib64/python3.10/copy.py
+cfn=_deepcopy_dict
+calls=1151876 227
+128 55573638753
+cfl=/usr/lib64/python3.10/copy.py
+cfn=_keep_alive
+calls=3466316 243
+128 2643365367
+cfl=/usr/lib64/python3.10/copy.py
+cfn=_reconstruct
+calls=1174252 259
+128 55734361896
+cfl=~
+cfn=<built-in method builtins.getattr>
+calls=2348504 0
+128 556773931
+cfl=~
+cfn=<built-in method builtins.id>
+calls=22054997 0
+128 2281106429
+cfl=~
+cfn=<built-in method builtins.isinstance>
+calls=1174252 0
+128 207445366
+cfl=~
+cfn=<built-in method builtins.issubclass>
+calls=1208216 0
+128 169423709
+cfl=~
+cfn=<method '__reduce_ex__' of 'object' objects>
+calls=1174252 0
+128 866509226
+cfl=~
+cfn=<method 'get' of 'dict' objects>
+calls=45272958 0
+128 4694794018
+
+fl=/usr/lib64/python3.10/copy.py
+fn=_deepcopy_atomic
+182 1924464900
+
+fl=/usr/lib64/python3.10/copy.py
+fn=_deepcopy_list
+201 3586032261
+cfl=/usr/lib64/python3.10/_weakrefset.py
+cfn=_remove
+calls=2 39
+201 49815
+cfl=/usr/lib64/python3.10/copy.py
+cfn=deepcopy
+calls=1450397 128
+201 53888164079
+cfl=~
+cfn=<built-in method builtins.id>
+calls=1140188 0
+201 131335138
+cfl=~
+cfn=<method 'append' of 'list' objects>
+calls=1450397 0
+201 180984682
+
+fl=/usr/lib64/python3.10/copy.py
+fn=_deepcopy_dict
+227 6045706904
+cfl=/usr/lib64/python3.10/copy.py
+cfn=deepcopy
+calls=18267384 128
+227 55503449118
+cfl=~
+cfn=<built-in method builtins.id>
+calls=1151876 0
+227 121774921
+cfl=~
+cfn=<method 'items' of 'dict' objects>
+calls=1151876 0
+227 523793863
+
+fl=/usr/lib64/python3.10/copy.py
+fn=_keep_alive
+243 1876284906
+cfl=~
+cfn=<built-in method builtins.id>
+calls=3477604 0
+243 373226090
+cfl=~
+cfn=<method 'append' of 'list' objects>
+calls=3455028 0
+243 393854371
+
+fl=/usr/lib64/python3.10/copy.py
+fn=_reconstruct
+259 3521308645
+cfl=/usr/lib64/python3.10/copy.py
+cfn=deepcopy
+calls=1151676 128
+259 55608351815
+cfl=/usr/lib64/python3.10/copy.py
+cfn=<genexpr>
+calls=2348504 264
+259 2551083717
+cfl=/usr/lib64/python3.10/copyreg.py
+cfn=__newobj__
+calls=1174152 100
+259 664554661
+cfl=~
+cfn=<built-in method builtins.hasattr>
+calls=1151676 0
+259 175535554
+cfl=~
+cfn=<built-in method builtins.id>
+calls=1174252 0
+259 143032578
+cfl=~
+cfn=<built-in method builtins.isinstance>
+calls=1151676 0
+259 193897823
+cfl=~
+cfn=<method 'update' of 'dict' objects>
+calls=1151676 0
+259 435724801
+
+fl=/usr/lib64/python3.10/copy.py
+fn=<genexpr>
+264 656523258
+cfl=/usr/lib64/python3.10/copy.py
+cfn=deepcopy
+calls=1174252 128
+264 1894560459
+
+fl=/usr/lib64/python3.10/copyreg.py
+fn=__newobj__
+100 496393946
+cfl=~
+cfn=<built-in method __new__ of type object at 0x7f904c9430a0>
+calls=1174152 0
+100 168160715
+
+fl=/usr/lib64/python3.10/enum.py
+fn=__call__
+359 4131
+cfl=/usr/lib64/python3.10/enum.py
+cfn=__new__
+calls=1 678
+359 2601
+
+fl=/usr/lib64/python3.10/enum.py
+fn=__new__
+678 2601
+
+fl=/usr/lib64/python3.10/uuid.py
+fn=__init__
+138 16091
+cfl=~
+cfn=<built-in method builtins.isinstance>
+calls=1 0
+138 239
+cfl=~
+cfn=<built-in method builtins.len>
+calls=1 0
+138 354
+cfl=~
+cfn=<built-in method from_bytes>
+calls=1 0
+138 977
+cfl=~
+cfn=<method 'count' of 'list' objects>
+calls=1 0
+138 827
+
+fl=/usr/lib64/python3.10/uuid.py
+fn=__str__
+279 6423
+
+fl=/usr/lib64/python3.10/uuid.py
+fn=uuid1
+666 10324
+cfl=/usr/lib64/python3.10/enum.py
+cfn=__call__
+calls=1 359
+666 6732
+cfl=/usr/lib64/python3.10/uuid.py
+cfn=__init__
+calls=1 138
+666 18488
+cfl=~
+cfn=<built-in method _uuid.generate_time_safe>
+calls=1 0
+666 65075
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=__init__
+46 26352538
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=_set_identifier
+calls=5645 81
+46 4008371
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=set_initial_tree_id
+77 1884673
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=_set_identifier
+81 3901329
+cfl=/usr/lib64/python3.10/uuid.py
+cfn=__str__
+calls=1 279
+81 6423
+cfl=/usr/lib64/python3.10/uuid.py
+cfn=uuid1
+calls=1 666
+81 100619
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=predecessor
+129 6059803
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=set_predecessor
+135 1949635
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=successors
+139 6401527
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=update_successors
+164 10015276
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=_manipulator_append
+calls=5644 172
+164 5555641
+cfl=~
+cfn=<built-in method builtins.locals>
+calls=5644 0
+164 6218882
+cfl=~
+cfn=<method 'get' of 'dict' objects>
+calls=5644 0
+164 698499
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=_manipulator_append
+172 3593796
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=successors
+calls=5644 139
+172 1160149
+cfl=~
+cfn=<method 'append' of 'list' objects>
+calls=5644 0
+172 801696
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+fn=identifier
+207 10314284
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=__getitem__
+146 205900000
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=__update_bpointer
+274 3838678
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=set_predecessor
+calls=5645 135
+274 1949635
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=__getitem__
+calls=5645 146
+274 1241532
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=__update_fpointer
+278 6935304
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=update_successors
+calls=5644 164
+278 22488298
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=__getitem__
+calls=5644 146
+278 1065113
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=add_node
+284 20482460
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=set_initial_tree_id
+calls=5645 77
+284 1884673
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=identifier
+calls=28125 207
+284 5508506
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=__update_bpointer
+calls=5645 274
+284 7029845
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=__update_fpointer
+calls=5645 278
+284 30488715
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=contains
+calls=5644 362
+284 1155573
+cfl=~
+cfn=<built-in method builtins.isinstance>
+calls=11290 0
+284 1083009
+cfl=~
+cfn=<method 'update' of 'dict' objects>
+calls=5645 0
+284 1783860
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=contains
+362 1156829
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=create_node
+366 6522
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=__init__
+calls=1 46
+366 119904
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=add_node
+calls=1 284
+366 23123
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=get_node
+481 1830
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=contains
+calls=1 362
+481 1256
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=siblings
+858 37990970
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=predecessor
+calls=5644 129
+858 6059803
+cfl=/usr/local/lib/python3.10/site-packages/treelib/node.py
+cfn=successors
+calls=5644 139
+858 5241378
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=__getitem__
+calls=11288 146
+858 10594517
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=<listcomp>
+calls=5644 868
+858 399291293
+
+fl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+fn=<listcomp>
+868 206292455
+cfl=/usr/local/lib/python3.10/site-packages/treelib/tree.py
+cfn=__getitem__
+calls=553212 146
+868 192998838
+
+fl=<string>
+fn=<module>
+1 2471
+cfl=/run/media/daniele/614F7D537CF390D4/corsi/AMOD/progetto/BnB_vs_Gurobi/proofs/../logic/problem.py
+cfn=solve
+calls=1 58
+1 75311017520
+
+fl=~
+fn=<built-in method __new__ of type object at 0x7f904c9430a0>
+0 168160715
+
+fl=~
+fn=<built-in method _uuid.generate_time_safe>
+0 65075
+
+fl=~
+fn=<built-in method builtins.exec>
+0 47057
+cfl=<string>
+cfn=<module>
+calls=1 1
+0 75311019991
+
+fl=~
+fn=<built-in method builtins.getattr>
+0 556773931
+
+fl=~
+fn=<built-in method builtins.hasattr>
+0 175535554
+
+fl=~
+fn=<built-in method builtins.id>
+0 3050475156
+
+fl=~
+fn=<built-in method builtins.isinstance>
+0 402426437
+
+fl=~
+fn=<built-in method builtins.issubclass>
+0 169423709
+
+fl=~
+fn=<built-in method builtins.len>
+0 59039086
+
+fl=~
+fn=<built-in method builtins.locals>
+0 6218882
+
+fl=~
+fn=<built-in method builtins.max>
+0 7747218
+
+fl=~
+fn=<built-in method builtins.min>
+0 142676816
+
+fl=~
+fn=<built-in method builtins.sum>
+0 10151301
+
+fl=~
+fn=<built-in method from_bytes>
+0 977
+
+fl=~
+fn=<method '__reduce_ex__' of 'object' objects>
+0 866509226
+
+fl=~
+fn=<method 'append' of 'list' objects>
+0 700494236
+
+fl=~
+fn=<method 'count' of 'list' objects>
+0 827
+
+fl=~
+fn=<method 'disable' of '_lsprof.Profiler' objects>
+0 929
+
+fl=~
+fn=<method 'discard' of 'set' objects>
+0 3924
+
+fl=~
+fn=<method 'get' of 'dict' objects>
+0 4695492517
+
+fl=~
+fn=<method 'index' of 'list' objects>
+0 7698727
+
+fl=~
+fn=<method 'items' of 'dict' objects>
+0 523793863
+
+fl=~
+fn=<method 'pop' of 'list' objects>
+0 2119198
+
+fl=~
+fn=<method 'update' of 'dict' objects>
+0 437508661
+

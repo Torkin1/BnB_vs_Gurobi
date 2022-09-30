@@ -3,3 +3,4 @@ treelib==1.6.1
 numpy==1.22.0
 func-timeout==4.3.5
 matplotlib==3.5.3
+pyprof2calltree==1.4.5
