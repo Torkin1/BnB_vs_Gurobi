@@ -30,16 +30,14 @@ class BranchAndBound(Solver):
 
     def __solve_bnb(self):
 
-        if len(self.toExplore) != 0:
+        while len(self.toExplore) != 0:
             pNode = self.toExplore.pop()
             if not self.isFathomed(pNode) :
                 subProblemNodes = self.branch(pNode)
                 for node in subProblemNodes:
                     self.problemsTree.add_node(node, parent=pNode)
                 self.toExplore += subProblemNodes
-                                    
-            self.__solve_bnb()
-    
+                                        
     def __call__(self, problem):
         """ solves problem using BnB algorithm"""
 
