@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage{mathtools}
+\usepackage{dsfont}
+
+\begin{document}
+
+Linear formulation of a Minimum weighted Completion times Single Machine Scheduling Problem: \\
+var $x_jt$ : 1 if job j is in execution at time t, else 0 \\
+var $c_j$ : completion time of job j \\
+param $p_j$ : processing time of job j \\
+param $w_j$ : weight of job j \\
+param $r_j$ : release time of job j \\
+param $T$ : set of time slots \\
+param $J$ : set of jobs \\
+
+\begin{alignat}{4}
+  & \text{min} \quad && \mathrlap{\sum_{j \in J} w_j C_j } \\ %objective
+  & \text{s.t.} \quad && \sum_{j \in J} x_{jt} \leq 1 \quad && \forall t \in T \\
+  & && \sum_{t \in T} x_{jt} = p_j \quad && \forall j \in J \\
+  & && c_j \geq tx_{jt} \quad && \forall j \in J, t \in t \\
+  & && x_{jt} \leq 0 \quad && \forall j \in J, t \leq r_j \in T\\
+  & && x_{jt} \in {0, 1} \quad && \forall j \in J, t \in t\\
+  & && c_j \geq 1 \in \mathds{N} \quad && \forall j \in J 
+\end{alignat}
+
+\end{document}
