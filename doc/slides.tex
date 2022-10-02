@@ -5,7 +5,7 @@
     event={BnB vs Gurobi},
     author={Daniele La Prova},
     longauthor={Daniele La Prova 0320429},
-    email={author@email.com},
+    email={daniele.laprova@students.uniroma2.eu},
     institute={AMOD 2021 2022},
     longinstitute={Universita degli Studi di Roma Tor Vergata},
     department={},
@@ -81,9 +81,8 @@
             l'algoritmo di scheduling specificato, il quale in base alla sua implementazione
             modificherà lo stato delle variabili per minimizzare o massimizzare la funzione obiettivo.    
         \end{itemize}    
-            \scriptsize
                 \begin{center}
-                    \begin{minted}[autogobble]{python}
+                    \begin{minted}[autogobble, fontsize=\scriptsize, linenos, numbersep=3pt]{python}
                         
                         # create a problem, solve it and display the result
                         p = problem
@@ -155,7 +154,7 @@
             parametro al costruttore e associato al problema al momento del branching,
             applicandolo a una copia.
         \end{itemize}
-        \begin{minted}[autogobble, fontsize=\scriptsize]{python}
+        \begin{minted}[autogobble, fontsize=\scriptsize, linenos, numbersep=3pt]{python}
                                                     
             def isFathomed(self, toFathomNode):
                 # a dominated problem can be immediately considered as fathomed
@@ -182,23 +181,24 @@
             \item La \textbf{regola di dominanza} permette di ridurre i problemi da sondare verificando
             che una pianificazione candidata rispetti le caratteristiche che una 
             pianificazione ottima deve avere.
-            \item se il job $k$ schedulato in $pNode$ è t.c. $r_k \geq \max(r_j, t) + p_j, j$ schedulato in S, $\forall S \in sNodes \Rrightarrow $ nodo $pNode$ è sondato
-            \vfill
-            \begin{minted}[autogobble, fontsize=\scriptsize]{python}
-                                                    
-                def isDominated(self, pNode):
-                    k = pNode.data.machine.currentlyScheduled        
-                    sNodes = self.problemsTree.siblings(pNode.identifier)
-                    for s in sNodes:
-                        # Problem is dominated if job k is released after the estimated
-                        # completion time of the currently scheduled job in all other
-                        # sibling problems,assuming that no preemption occurs.
-                        j = s.data.machine.currentlyScheduled
-                        if k.releaseTime <= s.data.machine.currentTime + j.remainingTime:
-                            return False
-                    return True
-            \end{minted}
         \end{itemize}
+        \begin{theorem}[Dominance Rule]
+            se il job $k$ schedulato in $pNode$ è t.c. $r_k \geq \max(r_j, t) + p_j, j$ schedulato in S, $\forall S \in sNodes \Rrightarrow $ nodo $pNode$ è sondato
+        \end{theorem}
+        \begin{minted}[autogobble, fontsize=\scriptsize, linenos, numbersep=3pt, numbersep=3pt]{python}
+                                                    
+            def isDominated(self, pNode):
+                k = pNode.data.machine.currentlyScheduled        
+                sNodes = self.problemsTree.siblings(pNode.identifier)
+                for s in sNodes:
+                    # Problem is dominated if job k is released after the estimated
+                    # completion time of the currently scheduled job in all other
+                    # sibling problems,assuming that no preemption occurs.
+                    j = s.data.machine.currentlyScheduled
+                    if k.releaseTime <= s.data.machine.currentTime + j.remainingTime:
+                        return False
+                return True
+        \end{minted}
     \end{frame}
 
     \subsection{Modellazione Lineare}
