@@ -1,3 +1,6 @@
 **/__pycache__
 proofs/*test.csv
-
+doc/**/*
+!doc/**/*.tex
+!doc/**/*.sty
+!doc/figs
