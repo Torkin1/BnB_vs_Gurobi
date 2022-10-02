@@ -1,6 +1,6 @@
 \documentclass[compress]{beamer}
 \usepackage[
-    title={Analisi prestazionale di schedulers},
+    title={Analisi prestazionale di pianificatori},
     subtitle={per un problema di Single Machine Scheduling},
     event={BnB vs Gurobi},
     author={Daniele La Prova},
@@ -74,7 +74,7 @@
 
     \begin{frame}[fragile]{\subsecname}
         \begin{itemize}
-        \item Un utente deve costruire un problema instanziando una implementazione
+        \item Un utente puo costruire un problema instanziando una implementazione
         di \texttt{Problem} fornendogli un'istanza di implementazione di \texttt{Objective}
         e di \texttt{Solver}.
         \item Invocando il metodo \texttt{Problem.solve()} viene eseguito 
@@ -119,7 +119,7 @@
 
     \begin{frame}[fragile]{\subsecname}
         \begin{itemize}
-            \item il modulo \texttt{logic.bnb} descrive l'interfaccia \texttt{B\&B} per un generico algoritmo
+            \item il modulo \texttt{logic.bnb} descrive l'interfaccia per un generico algoritmo
             di B\&B.
             \item Le implementazioni devono definire i seguenti metodi:
             \begin{itemize}
@@ -224,12 +224,12 @@
             \begin{itemize}
                 \item \includegraphics[scale=0.1]{figs/sofastatsLogo.png} \href{https://www.sofastatistics.com/home.php}{\textbf{SOFAstats}}:
                 analizza statisticamente dati per realizzare grafici;
-                \item \includegraphics[scale=0.1]{figs/kCacheGrindLogo.jpg} \href{https://www.gnuplot.info/}{\textbf{KCacheGrind}}: realizza mappe di chiamata 
+                \item \includegraphics[scale=0.1]{figs/kCacheGrindLogo.jpg} \href{https://kcachegrind.github.io/html/Home.html}{\textbf{KCacheGrind}}: realizza mappe di chiamata 
                 a funzioni a scopi di profilazione;
             \end{itemize}
             \item Il cronometraggio è stato eseguito usando la funzione \texttt{timeit} di Python,
             mentre la profilazione con la libreria \texttt{cProfile};
-            \item A causa di limitazione imposte nella licenza di Gurobi, il risolutore che lo
+            \item A causa di limitazioni imposte nella licenza di Gurobi, il risolutore che lo
             implementa è limitato a un determinato \texttt{TIME\_HORIZON} di istanti di tempo
             molto inferiore a quello teorico di BnB.
             \item La generazione di parametri causali per i jobs segue una distribuzione uniforme tra
@@ -288,8 +288,8 @@
             \item Il tempo di esecuzione di B\&B cresce molto lentamente con il numero di jobs fino a
             circa 200 jobs, per poi crescere esponenzialmente;
             \item Le fasi di B\&B che occupano più tempo sono le chiamate a \texttt{deepcopy}
-            effettuate nelle fasi di branching e fathoming (35.58\% del tempo totale. A seguire
-            il calcolo del lower bound tramite SPTF (23.96\%). Lavori futuri dovranno migliorare
+            effettuate nelle fasi di branching e fathoming (35.58\% del tempo totale). A seguire
+            il calcolo del lower bound tramite SPTF (23.96\%). Lavori futuri potranno migliorare
             l'efficienza di queste fasi;
 
         \end{itemize}
