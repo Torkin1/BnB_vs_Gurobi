@@ -3,4 +3,5 @@ proofs/*test.csv
 doc/**/*
 !doc/**/*.tex
 !doc/**/*.sty
-!doc/figs
+!doc/figs/
+!doc/figs/*
